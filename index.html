@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="app.js" defer></script>
+    <script
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+      defer
+    ></script>
+    <title>Contacts App</title>
+  </head>
+  <body>
+    <div id="backdrop"></div>
+
+    <!-- Edit Modal -->
+
+    <div class="modal" id="edit-modal">
+      <div class="modal__content">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" />
+        <span style="margin-top: 0.5rem; color: red" class="val-0 hidden-alert"
+          >Required *</span
+        >
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" />
+        <span style="margin-top: 0.5rem; color: red" class="val-0 hidden-alert"
+          >Required *</span
+        >
+        <label for="image-url">Profile Photo (URL)</label>
+        <input type="text" name="image-url" id="image-url" />
+        <span style="margin-top: 0.5rem; color: red" class="val-0 hidden-alert"
+          >Required *</span
+        >
+
+        <label for="email"><i class="fas fa-envelope"></i>E-mail</label>
+        <input type="text" name="email" id="email" />
+        <span style="margin-top: 0.5rem; color: red" class="val-0 hidden-alert"
+          >Required *</span
+        >
+        <label for="image-url">Telephone Number</label>
+        <input type="number" step="10" name="Telephone" id="Telephone" />
+        <span style="margin-top: 0.5rem; color: red" class="val-0 hidden-alert"
+          >Required *</span
+        >
+      </div>
+      <div class="status">
+        <label for="active">Active</label>
+        <input type="radio" name="status" value="Active" id="Active" />
+        <label for="inactive">Inactive</label>
+        <input type="radio" name="status" value="Inactive" id="Inactive" />
+        <span style="margin-top: 0.5rem; color: red" class="val-0 hidden-alert"
+          >Required *</span
+        >
+      </div>
+      <div class="modal__actions">
+        <button id="cancel-btn-edit" class="btn btn--passive">Cancel</button>
+        <button id="update-btn-edit" class="btn btn--success">Update</button>
+      </div>
+    </div>
+
+    <!-- Add Modal -->
+
+    <div class="modal" id="add-modal">
+      <div class="modal__content">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" />
+        <small style="margin-top: 0.5rem; color: red" class="val-0 hidden-alert"
+          >Required *</small
+        >
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" />
+        <small style="margin-top: 0.5rem; color: red" class="val-1 hidden-alert"
+          >Required *</small
+        >
+        <label for="image-url">Profile Photo (URL)</label>
+        <input type="text" name="image-url" id="image-url" />
+        <small style="margin-top: 0.5rem; color: red" class="val-0 hidden-alert"
+          >Required *</small
+        >
+        <label for="image-url">E-mail</label>
+        <input type="text" name="email" id="email" />
+        <small style="margin-top: 0.5rem; color: red" class="val-2 hidden-alert"
+          >Required *</small
+        >
+        <label for="image-url">Telephone Number</label>
+        <input type="number" step="10" name="Telephone" id="Telephone" />
+        <small style="margin-top: 0.5rem; color: red" class="val-3 hidden-alert"
+          >Required *</small
+        >
+      </div>
+      <div class="status">
+        <label for="Active">Active</label>
+        <input type="radio" name="status" value="Active" />
+        <label for="Inactive">Inactive</label>
+        <input type="radio" name="status" value="Inactive" />
+        <small
+          style="margin-left: 0.5rem; color: red"
+          class="val-4 hidden-alert"
+          >Required *</small
+        >
+      </div>
+      <div class="modal__actions">
+        <button id="cancel-btn" class="btn btn--passive">Cancel</button>
+        <button class="btn btn--success">Add</button>
+      </div>
+    </div>
+
+    <!-- Delete conformation Modal -->
+
+    <div class="modal" id="delete-modal">
+      <h2 class="modal__title">Are you sure?</h2>
+      <p class="modal__content">
+        Are you sure you want to delete this contact?
+      </p>
+      <div class="modal__actions">
+        <button id="btn-danger" class="btn btn--passive">No (Cancel)</button>
+        <button id="btn-success" class="btn btn--danger">Yes</button>
+      </div>
+    </div>
+
+    <!-- Main Html Content -->
+
+    <header>
+      <div class="iconbox">
+        <img src="assets/address.png" alt="" />
+        <h1>My Contacts</h1>
+      </div>
+
+      <button id="add-contact-btn">+</button>
+    </header>
+
+    <main>
+      <p id="entry-text">Store Your Personal Contacts Here!</p>
+      <ul id="contact-list"></ul>
+    </main>
+  </body>
+</html>
