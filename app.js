@@ -146,6 +146,11 @@ const deleteContactConfirmation = (contactId) => {
   newContactList.children[contactIndex].remove();
   cancelContactDeletion();
   sessionStorage.setItem("contactsData", JSON.stringify(contacts));
+  swal({
+    title: "Yay!",
+    text: "Your contact is deleted!",
+    icon: "success",
+  });
   updateUi();
 };
 
@@ -269,11 +274,17 @@ const addContactHandler = () => {
       swal({
         title: "Ooops!",
         text: "Please fill all mandatory fields *",
-        icon: "error",
+        icon: "warning",
       });
       return;
     }
   }
+
+  swal({
+    title: "Yay!",
+    text: "Your contact is added to Database",
+    icon: "success",
+  });
 
   const newContact = {
     id: Math.random(),
@@ -330,11 +341,17 @@ const editModalUpdateBtnHandler = () => {
       swal({
         title: "Ooops!",
         text: "Please fill all mandetory fields *",
-        icon: "error",
+        icon: "warning",
       });
       return;
     }
   }
+
+  swal({
+    title: "Yay!",
+    text: "Your contact data has been updated",
+    icon: "info",
+  });
 
   contacts.splice(
     contacts.findIndex((contact) => contact.id === editedContact.id),
