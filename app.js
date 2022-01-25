@@ -159,8 +159,6 @@ const renderContactElement = () => {
     const defaultImage = "assets/default.jpg";
     if (contact.image === "") contact.image = defaultImage;
 
-    // contacts.map()
-
     const newContactElement = document.createElement("li");
     newContactElement.className = "contact-element";
     newContactElement.innerHTML = `
@@ -270,7 +268,7 @@ const addContactHandler = () => {
     if (validAl.className.includes("visible-alert")) {
       swal({
         title: "Ooops!",
-        text: "Please fill all mandetory fields *",
+        text: "Please fill all mandatory fields *",
         icon: "error",
       });
       return;
