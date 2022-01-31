@@ -386,17 +386,4 @@ editModalCancelBtn.addEventListener("click", editModalCancelBtnHandler);
 
 editModalUpdateBtn.addEventListener("click", editModalUpdateBtnHandler);
 
-console.log(1 && 2);
 
-function checkInteger(number) {
-  return Number.isInteger(number);
-}
-console.log(checkInteger(5));
-
-const check = (number) => {
-  if (Number.isInteger(number)) {
-    return true;
-  }
-  return false;
-};
-console.log(check(5.4));
