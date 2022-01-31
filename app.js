@@ -154,15 +154,20 @@ const deleteContactConfirmation = (contactId) => {
   updateUi();
 };
 
+const randomNumberGenerator = () => {
+  return Math.floor(Math.random() * 100000 + 1);
+};
+
+const randomAvatarUrlGenerator = () => {
+  return `https://avatars.dicebear.com/api/big-ears-neutral/${randomNumberGenerator()}.svg`;
+};
+
 const renderContactElement = () => {
   resetUi();
 
   contacts.map((contact) => {
     let editId = `edit${Math.random()}`;
     let deleteId = `delete${Math.random()}`;
-
-    const defaultImage = "assets/default.jpg";
-    if (contact.image === "") contact.image = defaultImage;
 
     const newContactElement = document.createElement("li");
     newContactElement.className = "contact-element";
@@ -258,7 +263,9 @@ const addContactHandler = () => {
   const firstNameValue = userInputs[0].value;
   console.log(firstNameValue);
   const lastNameValue = userInputs[1].value;
-  const imageValue = userInputs[2].value;
+  const imageValue = userInputs[2].value
+    ? userInputs[2].value
+    : randomAvatarUrlGenerator();
   const emailValue = userInputs[3].value;
   const phonevalue = userInputs[4].value;
   const userStatus = userInputs[5].checked
@@ -378,3 +385,18 @@ addBtn.addEventListener("click", addContactHandler);
 editModalCancelBtn.addEventListener("click", editModalCancelBtnHandler);
 
 editModalUpdateBtn.addEventListener("click", editModalUpdateBtnHandler);
+
+console.log(1 && 2);
+
+function checkInteger(number) {
+  return Number.isInteger(number);
+}
+console.log(checkInteger(5));
+
+const check = (number) => {
+  if (Number.isInteger(number)) {
+    return true;
+  }
+  return false;
+};
+console.log(check(5.4));
