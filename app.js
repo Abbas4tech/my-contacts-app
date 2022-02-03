@@ -37,8 +37,8 @@ let successBtn = document.getElementById("btn-success");
 
 let contacts = [];
 
-if (sessionStorage.getItem("contactsData")) {
-  contacts = JSON.parse(sessionStorage.getItem("contactsData"));
+if (localStorage.getItem("contactsData")) {
+  contacts = JSON.parse(localStorage.getItem("contactsData"));
 }
 
 console.log(contacts);
@@ -145,7 +145,7 @@ const deleteContactConfirmation = (contactId) => {
   const newContactList = document.getElementById("contact-list");
   newContactList.children[contactIndex].remove();
   cancelContactDeletion();
-  sessionStorage.setItem("contactsData", JSON.stringify(contacts));
+  localStorage.setItem("contactsData", JSON.stringify(contacts));
   swal({
     title: "Yay!",
     text: "Your contact is deleted!",
@@ -304,7 +304,7 @@ const addContactHandler = () => {
   };
   contacts.push(newContact);
   const contactsArray = [...contacts];
-  sessionStorage.setItem("contactsData", JSON.stringify(contactsArray));
+  localStorage.setItem("contactsData", JSON.stringify(contactsArray));
   console.log(contacts);
 
   closeContactModal();
@@ -369,7 +369,7 @@ const editModalUpdateBtnHandler = () => {
   closeEditModal();
   removeBackdrop();
   console.log(editedContact);
-  sessionStorage.setItem("contactsData", JSON.stringify(contacts));
+  localStorage.setItem("contactsData", JSON.stringify(contacts));
 
   renderContactElement();
 };
